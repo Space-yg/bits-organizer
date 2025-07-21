@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./dist/styles/styles.css">
+		<title>Bits Organizer</title>
+	</head>
+	<body>
+		<h1>Bits Organizer</h1>
+
+		<!-- Organization table -->
+		<table id="organization-table">
+			<thead>
+				<tr>
+					<th>Remove</th>
+					<th>Add</th>
+					<th>Name</th>
+					<th>Start Bit</th>
+					<th>Length</th>
+					<th>Info</th>
+					<th>Highlight</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+			<tbody>
+				<tr>
+					<td colspan="6">
+						<button id="add-organization-table-data">+</button>
+					</td>
+					<td>
+						<button id="highlight-all">Highlight All</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<!-- Errors -->
+		<p>Errors:</p>
+		<ul id="errors">
+			<li>No errors found!</li>
+		</ul>
+
+		<!-- Bytes data -->
+		<label>
+			Data:
+			<textarea id="bytes-data" placeholder="0x12 0x34 0x56"></textarea>
+		</label>
+
+		<!-- Organize button -->
+		<button id="organize-button">Organize</button>
+
+		<!-- Bits table -->
+		<table>
+			<tbody id="bits"></tbody>
+		</table>
+
+		<!-- Info -->
+		<div id="info">
+
+		</div>
+
+		<script src="./dist/scripts/index.js" type="module"></script>
+	</body>
+</html>
