@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "lib": ["esnext", "DOM", "DOM.Iterable"],
+    "module": "esnext",
+    "skipLibCheck": true,
+    "types": ["vite/client"],
+    "baseUrl": "./",
+    "paths": {
+      // Global
+      "@/components/*": ["src/components/*"],
+      "@/features/*": ["src/features/*"],
+      "@/contexts/*": ["src/contexts/*"],
+
+      // Local
+      // "!/*": ["src/pages/home/*"]
+    },
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    // "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react",
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+
+    /* Linting */
+    "strict": true,
+  },
+  "include": ["src"],
+  "exclude": ["src/pages"],
+  "references": [
+    { "path": "./pages/home/tsconfig.json" }
+  ]
+}

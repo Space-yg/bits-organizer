@@ -2,6 +2,7 @@ import React, { memo, useState } from "react"
 import { original } from "immer"
 import { InputNumber } from "@/components/form"
 import { defaultOrganizationTableEntry, getElementFromDraftArray } from "!/utils/helpers"
+import type { WritableDraft } from "immer"
 import type { Updater } from "use-immer"
 import type { BitsOrganization } from "!/types"
 
@@ -96,14 +97,14 @@ const OrganizationTableEntry = memo(function OrganizationTableEntry({ bitsOrgani
 					className={"color " + (bitsOrganization.highlight !== "off" ? "highlight" : "")}
 					style={{ backgroundColor: bitsOrganization.color }}
 					onMouseOver={() => bitsOrganization.highlight !== "focus" && setBitsOrganizations(draft => {
-						if (!draft.some(bitsOrganization => bitsOrganization.highlight === "focus")) getElementFromDraftArray(draft, bitsOrganization)!.highlight = "hover"
+						if (!draft.some((bitsOrganization: WritableDraft<BitsOrganization>) => bitsOrganization.highlight === "focus")) getElementFromDraftArray(draft, bitsOrganization)!.highlight = "hover"
 					})}
 					onMouseLeave={() => bitsOrganization.highlight !== "focus" && setBitsOrganizations(draft => {
 						getElementFromDraftArray(draft, bitsOrganization)!.highlight = "off"
 					})}
 					onClick={() => {
 						setBitsOrganizations(draft => {
-							if (!draft.some(bitsOrganization => bitsOrganization.highlight === "focus") || bitsOrganization.highlight === "focus") {
+							if (!draft.some((bitsOrganization: WritableDraft<BitsOrganization>) => bitsOrganization.highlight === "focus") || bitsOrganization.highlight === "focus") {
 								const bits = getElementFromDraftArray(draft, bitsOrganization)!
 								bits.highlight = bits.highlight === "focus" ? "hover" : "focus"
 							}

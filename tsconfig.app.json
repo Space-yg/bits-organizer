@@ -1,35 +1,10 @@
 {
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    "types": ["vite/client"],
-    "baseUrl": "./",
-    "paths": {
-      // Global
-      "@/components/*": ["src/components/*"],
-      "@/features/*": ["src/features/*"],
-      "@/contexts/*": ["src/contexts/*"],
-
-      // Local
-      "!/*": ["src/pages/*"]
-    },
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react",
-    "forceConsistentCasingInFileNames": true,
-
-    /* Linting */
-    "strict": true,
   },
-  "include": ["src"],
-  "exclude": ["src/pages"],
+  "references": [
+    { "path": "./src/pages/home/tsconfig.json" },
+    { "path": "./src/pages/version/tsconfig.json" },
+  ],
+  "include": [],
 }

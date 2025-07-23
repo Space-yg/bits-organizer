@@ -1,6 +1,8 @@
 import React from "react"
 import { getElementFromDraftArray } from "!/utils/helpers"
+
 import type { Updater } from "use-immer"
+import type { WritableDraft } from "immer"
 import type { BitsOrganization } from "!/types"
 
 type Props = {
@@ -15,14 +17,14 @@ export default function OrganizedBitsGroup({ bitsOrganization, setBitsOrganizati
 		<div
 			className={bitsOrganization.highlight !== "off" ? "highlight" : ""}
 			onMouseOver={() => bitsOrganization.highlight !== "focus" && setBitsOrganizations(draft => {
-				if (!draft.some(bitsOrganization => bitsOrganization.highlight === "focus")) getElementFromDraftArray(draft, bitsOrganization)!.highlight = "hover"
+				if (!draft.some((bitsOrganization: WritableDraft<BitsOrganization>) => bitsOrganization.highlight === "focus")) getElementFromDraftArray(draft, bitsOrganization)!.highlight = "hover"
 			})}
 			onMouseLeave={() => bitsOrganization.highlight !== "focus" && setBitsOrganizations(draft => {
 				if (getElementFromDraftArray(draft, bitsOrganization)) getElementFromDraftArray(draft, bitsOrganization)!.highlight = "off"
 			})}
 			onClick={() => {
 				setBitsOrganizations(draft => {
-					if (!draft.some(bitsOrganization => bitsOrganization.highlight === "focus") || bitsOrganization.highlight === "focus") {
+					if (!draft.some((bitsOrganization: WritableDraft<BitsOrganization>) => bitsOrganization.highlight === "focus") || bitsOrganization.highlight === "focus") {
 						const bits = getElementFromDraftArray(draft, bitsOrganization)!
 						bits.highlight = bits.highlight === "focus" ? "hover" : "focus"
 					}

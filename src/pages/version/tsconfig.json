@@ -1,18 +1,18 @@
 {
-  "extends": "../../../tsconfig.app.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "paths": {
       // Global
-      "@/components/*": ["src/components/*"],
-      "@/features/*": ["src/features/*"],
-      "@/contexts/*": ["src/contexts/*"],
+      "@/components/*": ["components/*"],
+      "@/features/*": ["features/*"],
+      "@/contexts/*": ["contexts/*"],
 
       // Local
-      "!/features/*": ["src/pages/version/features/*"],
-			"!/utils/*": ["src/pages/version/utils/*"],
-			"!/contexts/*": ["src/pages/version/contexts/*"],
-			"!/types": ["src/pages/version/types.d.ts"],
-    }
+      "!/features/*": ["pages/version/features/*"],
+			"!/utils/*": ["pages/version/utils/*"],
+			"!/contexts/*": ["pages/version/contexts/*"],
+			"!/types": ["pages/version/types.d.ts"],
+    },
   },
   "include": ["./"],
 	"exclude": [],
