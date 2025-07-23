@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "tsBuildInfoFile": "../../../node_modules/.tmp/src/pages/home/tsconfig.app.tsbuildinfo",
     "paths": {
       // Global
       "@/components/*": ["components/*"],

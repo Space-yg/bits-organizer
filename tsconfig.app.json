@@ -1,7 +1,4 @@
 {
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-  },
   "references": [
     { "path": "./src/pages/home/tsconfig.json" },
     { "path": "./src/pages/version/tsconfig.json" },

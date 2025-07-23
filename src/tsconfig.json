@@ -31,9 +31,6 @@
     /* Linting */
     "strict": true,
   },
-  "include": ["src"],
-  "exclude": ["src/pages"],
-  "references": [
-    { "path": "./pages/home/tsconfig.json" }
-  ]
+  "include": ["./"],
+  "exclude": ["./pages"]
 }

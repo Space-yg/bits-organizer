@@ -5,6 +5,8 @@ import App from "./App.tsx"
 
 import "./index.scss"
 
+console.log("Hi! Welcome to my website :)")
+
 createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
 		<BrowserRouter basename="/bits-organizer">
