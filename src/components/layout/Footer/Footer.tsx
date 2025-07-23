@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router"
 
 import "./styles.scss"
 
@@ -7,7 +8,7 @@ type Props = {}
 export default function Footer({ }: Props) {
 	return (
 		<footer>
-			<a href={import.meta.env.BASE_URL + "/version"}>Version</a>
+			<Link to={"/version"}>Version</Link>
 		</footer>
 	)
 }
