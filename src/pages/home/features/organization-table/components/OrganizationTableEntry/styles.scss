@@ -1,0 +1,17 @@
+table {
+	td {
+		position: relative;
+
+		div.color {
+			position: absolute;
+			inset: 0;
+
+			//* Removed the &:hover so that they don't highlight when others are highlighted
+			&.highlight {
+				border: .5em solid gray;
+				margin: calc(-.5em / 2);
+				z-index: 1;
+			}
+		}
+	}
+}

@@ -1,0 +1,122 @@
+// Bits table
+div.bits {
+	text-align: center;
+
+	// Grid view
+	&.grid {
+		display: grid;
+		grid-template-columns: repeat(8, 1fr);
+		position: relative;
+
+		// Group of bits
+		> div {
+			display: contents;
+
+			// Tooltip
+			> span {
+				display: none;
+				position: absolute;
+				transform: translate(-50%, -150%);
+				background-color: lightgray;
+				padding: .5em;
+				border-radius: .75em;
+				z-index: 2;
+
+				&::after {
+					content: "";
+					display: block;
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					width: .5em;
+					height: .5em;
+					transform: translate(-50%, 50%) rotate(45deg);
+					background-color: lightgray;
+				}
+
+			}
+		}
+	}
+
+	// Separate view
+	&.separate {
+		// display: grid;
+
+		// Group of bits
+		> div {
+			display: grid;
+			grid-template-columns: repeat(8, 1fr);
+
+			// Tooltip
+			> span {
+				display: block;
+			}
+		}
+	}
+
+	// Group of bits
+	> div {
+		// Bit
+		> div {
+			border: 1px solid black;
+		}
+
+		// When hovering over a group of bits
+		//* Removed the &:hover so that they don't highlight when others are highlighted
+		&.highlight {
+			// Tooltip
+			> span {
+				display: block;
+			}
+
+			// Bit
+			> div {
+				$border-style: solid;
+				$border-width: .5em;
+				$border-color: rgba(128, 128, 128, 0.8);
+				z-index: 1;
+
+				border: none;
+				border-top-style: $border-style;
+				border-top-color: $border-color;
+				border-top-width: $border-width;
+				border-bottom-style: $border-style;
+				border-bottom-color: $border-color;
+				border-bottom-width: $border-width;
+
+				margin-top: calc(1px - $border-width);
+				margin-bottom: calc(1px - $border-width);
+
+				// First
+				&:first-of-type {
+					border-left-style: $border-style;
+					border-left-color: $border-color;
+					border-left-width: $border-width;
+
+					margin-left: -$border-width;
+				}
+
+				// A div that has 8 divs after it
+				&:has(+ div + div + div + div + div + div + div + div) {
+					border-bottom: none;
+					margin-bottom: 0;
+				}
+
+				// 8th child+
+				&:nth-child(n + 9 of div) {
+					border-top: none;
+					margin-top: 0;
+				}
+
+				// Last
+				&:last-of-type {
+					border-right-style: $border-style;
+					border-right-color: $border-color;
+					border-right-width: $border-width;
+
+					margin-right: -$border-width;
+				}
+			}
+		}
+	}
+}
